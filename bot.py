@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 from discord.ui import View, Button, Select, Modal, TextInput
 import aiosqlite
-import pandas as pd
 from dotenv import load_dotenv
 import os
 import logging
@@ -319,7 +318,7 @@ class HackathonRoleDropdown(Select):
 
         try:
             await interaction.user.add_roles(role)
-            print(f"[LOG] Assigned hackathon role {role.name} to {interaction.user}")
+            logger.info(f"[LOG] Assigned hackathon role {role.name} to {interaction.user}")
 
             # Define the associated channel ID for the role
             channel_id = (
